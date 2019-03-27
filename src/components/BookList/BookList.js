@@ -16,7 +16,8 @@ class BookList extends Component {
         price: book.saleInfo.listPrice.amount,
         currencyCode: book.saleInfo.listPrice.currencyCode,
         saleability: book.saleInfo.saleability,
-        author: book.volumeInfo.authors
+        author: book.volumeInfo.authors,
+        country: book.saleInfo.country
       }
       return <Book book={bookObj} key={i} />;
     });
