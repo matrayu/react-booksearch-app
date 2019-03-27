@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import SearchParams from './components/SearchParams/SearchParams'
-import Data from './Data'
+import BookList from './components/BookList/BookList'
 
 import './App.css';
-
-const staticBooks = Data.store.items
-console.log(staticBooks)
 
 
 class App extends Component {
@@ -15,6 +12,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Google Book Search</h1>
           <SearchParams />
+          <BookList bookList={this.props.books}/>
         </header>
       </div>
     );

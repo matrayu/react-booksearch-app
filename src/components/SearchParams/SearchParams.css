@@ -1,0 +1,17 @@
+.searchParams {
+    font-size: 16px;
+}
+
+.filter__form select, .filter__form label {
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.filter__form label {
+    text-align: left;
+    font-size: 0.9em;
+}
+
+.filter__form select {
+    margin-left: 5px;
+}
