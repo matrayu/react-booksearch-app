@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import './Book.css';
 
 class Book extends Component {
+
+  
+
   render() {
+    const price = new Intl.NumberFormat(`${this.props.book.country}`, { style: 'currency', currency: `${this.props.book.currencyCode}` }).format(this.props.book.price)
+
     return (
       <div className="book">
         <div className="book__row">
@@ -14,7 +19,7 @@ class Book extends Component {
           </div>
           <div className="book__subDetails">
             <div className="book__author">Author: {this.props.book.author}</div>
-            <div className="book__price">Price: {this.props.book.price}</div>
+            <div className="book__price">Price: {price}</div>
             <div className="book__description">{this.props.book.shortDescription}</div>
           </div>
         </div>
