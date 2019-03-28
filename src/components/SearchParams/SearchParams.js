@@ -8,8 +8,16 @@ class SearchParams extends Component {
   render() {
     return (
       <div className="searchParams">
-        <Search />
-        <Filter />
+        <Search 
+          handleSearch={this.props.handleSearch}
+          searchTerm={this.props.searchTerm}
+          />
+        <Filter 
+          bookType={this.props.bookType}
+          printType={this.props.printType}
+          handlePrintType={this.props.handlePrintType}
+          handleBookType={this.props.handleBookType}
+        />
       </div>
     );
   }
