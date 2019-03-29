@@ -2,21 +2,42 @@ import React, { Component } from 'react';
 import './Search.css';
 
 class Search extends Component {
-  handleSearch = (e) => {
-    this.handleSubmit(e.target.value)
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: ''
+    }
+  }
+
+  handleSearchChanged = (e) => {
+    this.searchChanged(e.target.value)
   };
 
-  handleSubmit = (searchTerm) => {
-    this.props.handleSearch(searchTerm)
+  searchChanged = (searchTerm) => {
+    this.setState({ title: searchTerm })
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    if(this.state.title !== "") {
+      this.props.handleSearch(this.state.title)
+    }
+    else {
+      console.log('Nothing entered!')
+      return
+    }
   };
 
   
   render() {
     return (
       <div className="search">
-        <form className="search__form">
-            <label htmlFor="search">Search:</label>
-            <input type="text" name="search" id="search" placeholder="Shantaram" value={this.props.searchTerm} onChange={this.handleSearch} />
+        <form className="search__form" onSubmit={this.handleSubmit}>
+          <label htmlFor="search">Search:</label>
+          <input type="text" name="search" id="search" placeholder="Shantaram" defaultValue={this.props.searchTerm} onChange={this.handleSearchChanged} />
+          <div className="search__button">
+            <button type="submit">Search</button>
+          </div>
         </form>
       </div>
     );

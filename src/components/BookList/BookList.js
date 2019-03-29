@@ -13,11 +13,13 @@ class BookList extends Component {
         description: book.volumeInfo.description,
         shortDescription: book.searchInfo.textSnippet,
         thumbnail: book.volumeInfo.imageLinks.thumbnail,
+        author: book.volumeInfo.authors,
+        country: book.saleInfo.country,
+        /* price: 10.00,
+        currencyCode: 'USD', */
         price: book.saleInfo.listPrice.amount,
         currencyCode: book.saleInfo.listPrice.currencyCode,
         saleability: book.saleInfo.saleability,
-        author: book.volumeInfo.authors,
-        country: book.saleInfo.country
       }
       return <Book book={bookObj} key={i} />;
     });
