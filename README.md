@@ -1,3 +1,7 @@
+## React Book Search App
+
+This project uses Google Booksearch API. Non-Graded project for Thinkful
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
