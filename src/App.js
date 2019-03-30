@@ -319,50 +319,60 @@ class App extends Component {
     });
     console.log(this.state.searchTerm)
   } */
+  componentWillUpdate(nextProps, nextState) {
+    let searchParams = '';
+    if(nextState.searchTerm !== this.state.searchTerm || nextState.printType !== this.state.printType || nextState.bookType !== this.state.bookType) {
+      if(nextState.bookType === 'No Filter') {
+        searchParams = encodeURI(`q=${nextState.searchTerm}&printType=${nextState.printType}&`);
+      } 
+      else {
+        searchParams = encodeURI(`q=${nextState.searchTerm}&filter=${nextState.bookType}&printType=${nextState.printType}&`);
+      };
+      console.log('Updating!')
+      const baseUrl = "https://www.googleapis.com/books/v1/volumes?";
+      const apiKey = "key=AIzaSyCqjl3i6rIksJupnO7JqAm9J3Bf9qPMR4E";
+      const searchUrl = baseUrl + searchParams + apiKey;
+      const options = {
+        method: "GET",
+        headers: {
+          Accept: "application/json"
+        }
+      };
+
+      fetch(searchUrl, options)
+        .then(res => {
+          console.log('API Call!', searchUrl)
+          if (!res.ok) {
+            throw new Error("Something went wrong, please try again later");
+          }
+          return res;
+        })
+        .then(res => res.json())
+        .then(data => {
+          this.setState({
+            items: data.items,
+            error: null
+          });
+        })
+        .catch(err => {
+          this.setState({
+            error: err.message
+          });
+        });
+    };
+  };
+  
 
   handleSearch(searchTerm) {
-    this.setState({ searchTerm: searchTerm });
-    console.log(this.state.printType);
-    const baseUrl = "https://www.googleapis.com/books/v1/volumes?";
-    const searchParams = `q=${searchTerm}&bookType=${this.state.bookType}&printType=${this.state.printType}&`;
-    const apiKey = "key=AIzaSyCqjl3i6rIksJupnO7JqAm9J3Bf9qPMR4E";
-    const searchUrl = baseUrl + searchParams + apiKey;
-    const options = {
-      method: "GET",
-      headers: {
-        Accept: "application/json"
-      }
-    };
-
-    fetch(searchUrl, options)
-      .then(res => {
-        console.log(searchUrl);
-        if (!res.ok) {
-          throw new Error("Something went wrong, please try again later");
-        }
-        return res;
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        this.setState({
-          items: data.items,
-          error: null
-        });
-      })
-      .catch(err => {
-        this.setState({
-          error: err.message
-        });
-      });
+    this.setState({ searchTerm: searchTerm })
   };
 
-  handlePrintType = printType => {
-    this.setState({ printType: printType });
+  handlePrintType(printType) {
+    this.setState({ printType: printType })
   };
 
-  handleBookType = bookType => {
-    this.setState({ bookType: bookType });
+  handleBookType(bookType) {
+    this.setState({ bookType: bookType })
   };
 
   render() {
@@ -372,13 +382,13 @@ class App extends Component {
           <h1>Google Book Search</h1>
           <SearchParams
             handleSearch={searchTerm => this.handleSearch(searchTerm)}
+            handlePrintType={printType => this.handlePrintType(printType)}
+            handleBookType={bookType => this.handleBookType(bookType)}
             searchTerm={this.state.searchTerm}
             printType={this.state.printType}
-            handlePrintType={this.handlePrintType}
             bookType={this.state.bookType}
-            handleBookType={this.handleBookType}
           />
-          <BookList bookList={this.state.items} />
+          <BookList bookList={this.state.items} searchTerm={this.state.searchTerm} />
         </header>
       </div>
     );
