@@ -20,7 +20,6 @@ class Book extends Component {
             <div className="book__author">Author: {this.props.book.author}</div>
             <div className="book__price">Price: {priceFormat}</div>
             <div className="book__description">{this.props.book.shortDescription}</div>
-            {/* <div className="book__description">{this.props.book.description}</div> */}
           </div>
         </div>
       </div>
