@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookList component renders the UI as expected 1`] = `
+<div
+  className="bookList"
+>
+  <div
+    className="book"
+  >
+    <div
+      className="book__row"
+    >
+      <h2
+        className="book__title"
+      >
+        Shantaram
+      </h2>
+    </div>
+    <div
+      className="book__details"
+    >
+      <div
+        className="book__image"
+      >
+        <img
+          alt="No Img Available"
+          src="http://books.google.com/books/content?id=1nOvLGnVZJAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          title="Shantaram"
+        />
+      </div>
+      <div
+        className="book__subDetails"
+      >
+        <div
+          className="book__author"
+        >
+          Author: 
+          Gregory David Roberts
+        </div>
+        <div
+          className="book__price"
+        >
+          Price: 
+          $9.99
+        </div>
+        <div
+          className="book__description"
+        >
+          Burning slums and five-star hotels, romantic love and prison agonies, criminal wars and Bollywood films, spiritual gurus and mujaheddin guerrillas---this huge novel has the world of human experience in its reach, and a passionate love for ...
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="book"
+  >
+    <div
+      className="book__row"
+    >
+      <h2
+        className="book__title"
+      >
+        The Mountain Shadow
+      </h2>
+    </div>
+    <div
+      className="book__details"
+    >
+      <div
+        className="book__image"
+      >
+        <img
+          alt="No Img Available"
+          src="http://books.google.com/books/content?id=VX-uCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          title="The Mountain Shadow"
+        />
+      </div>
+      <div
+        className="book__subDetails"
+      >
+        <div
+          className="book__author"
+        >
+          Author: 
+          Gregory David Roberts
+        </div>
+        <div
+          className="book__price"
+        >
+          Price: 
+          $9.99
+        </div>
+        <div
+          className="book__description"
+        >
+          In The Mountain Shadow, the long awaited sequel, Lin must find his way in a Bombay run by a different generation of mafia dons, playing by a different set of rules.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="book"
+  >
+    <div
+      className="book__row"
+    >
+      <h2
+        className="book__title"
+      >
+        Limits of the Known
+      </h2>
+    </div>
+    <div
+      className="book__details"
+    >
+      <div
+        className="book__image"
+      >
+        <img
+          alt="No Img Available"
+          src="http://books.google.com/books/content?id=QoYrDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          title="Limits of the Known"
+        />
+      </div>
+      <div
+        className="book__subDetails"
+      >
+        <div
+          className="book__author"
+        >
+          Author: 
+          David Roberts
+        </div>
+        <div
+          className="book__price"
+        >
+          Price: 
+          $16.95
+        </div>
+        <div
+          className="book__description"
+        >
+          Part memoir and part history, this book tries to make sense of why so many have committed their lives to the desperate pursuit of adventure.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

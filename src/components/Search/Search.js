@@ -33,7 +33,7 @@ class Search extends Component {
     return (
       <div className="search">
         <form className="search__form" onSubmit={this.handleSubmit}>
-          <label htmlFor="search">Search:</label>
+          <label htmlFor="search"></label>
           <input type="text" name="search" id="search" placeholder="Shantaram" defaultValue={this.props.searchTerm} onChange={this.handleSearchChanged} />
           <div className="search__button">
             <button type="submit">Search</button>
