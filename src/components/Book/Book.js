@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import './Book.css';
 
 class Book extends Component {
-
-  
-
   render() {
-    const price = new Intl.NumberFormat(`${this.props.book.country}`, { style: 'currency', currency: `${this.props.book.currencyCode}` }).format(this.props.book.price)
+    const priceFormat = this.props.book.price
+      ? new Intl.NumberFormat(`${this.props.book.country}`, { style: 'currency', currency: `${this.props.book.currencyCode}` }).format(this.props.book.price)
+      : 'Not For Sale';
 
     return (
       <div className="book">
@@ -15,12 +14,13 @@ class Book extends Component {
         </div>
         <div className="book__details">
           <div className="book__image">
-            <img src={this.props.book.thumbnail} title={this.props.book.title} alt={this.props.book.title} />
+            <img src={this.props.book.thumbnail} title={this.props.book.title} alt='No Img Available' />
           </div>
           <div className="book__subDetails">
             <div className="book__author">Author: {this.props.book.author}</div>
-            <div className="book__price">Price: {price}</div>
+            <div className="book__price">Price: {priceFormat}</div>
             <div className="book__description">{this.props.book.shortDescription}</div>
+            {/* <div className="book__description">{this.props.book.description}</div> */}
           </div>
         </div>
       </div>
