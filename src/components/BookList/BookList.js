@@ -20,7 +20,7 @@ class BookList extends Component {
           currencyCode: book.saleInfo.listPrice ? book.saleInfo.listPrice.currencyCode : '',
           saleability: book.saleInfo.saleability,
         }
-        return <Book book={bookObj} key={i} />;
+        return <Book book={bookObj} key={i}/>;
       })
     } else {
       books = `Your search - ${this.props.searchTerm} - did not match any book results.`
